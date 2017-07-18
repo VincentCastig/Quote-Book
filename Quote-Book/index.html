@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>mini-userProfiles</title>
+
+</head>
+<body ng-controller="mainCtrl">
+  <form>
+    <input type="text" style="width: 420px" placeholder="Filter By Quote or Author" ng-model="filterQuote"/>
+  </form>
+  <form>
+    <input type="text" placeholder="Quote" ng-model="Quote"/>
+    <input type="text" placeholder="Author" ng-model="Author"/>
+    <button ng-click="addQuote(Quote, Author)">Add</button>
+    <button ng-click="removeQuote(Author)">Remove By Author</button>
+  </form>
+  <div ng-repeat="user in users | filter: filterQuote" style="margin-top: 30px; margin-bottom: 70px">
+      <span><h3>Famous Quote</h3></span><p style=font-family:cursive>{{user.text}}</p>
+      <span><h4></h4></span><p>{{user.author}}</p>
+
+
+  </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+     <script src="app.js"></script>
+     <script src="mainCtrl.js"></script>
+     <script src="mainServ.js"></script>
+</body>
+</html>
